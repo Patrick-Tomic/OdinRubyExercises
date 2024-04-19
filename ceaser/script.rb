@@ -3,10 +3,15 @@
 
 def ceaserCipher(string, value)
     arr = string.split('')
-    arr.map! {|character| if(character != ' ') character.ord}
-    arr.map! {|val| (val+value).chr}
-
+    arr.map! {|character|character.ord}
+    arr.map! {|val| 
+    if (val === 32)
+        val.chr
+    else
+        (val+value).chr
+    end
+}
     puts arr.join('')
 end
 
-ceaserCipher('Hello World',5)
+ceaserCipher('Hello World',1)
