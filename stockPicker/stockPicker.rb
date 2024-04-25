@@ -12,8 +12,8 @@ def stock_picker(arr)
     elsif highestPrice < price and index != 0
         dayToSell = index
         highestPrice = price
-    
-    elsif lowestPrice === 0
+    end
+    if lowestPrice === 0
         lowestPrice = price
         dayToBuy = index
     elsif lowestPrice > price
@@ -21,9 +21,8 @@ def stock_picker(arr)
         dayToBuy = index
     end
 end
-
-days = Array.new(dayToBuy)
-puts days
+days = [dayToBuy, dayToSell]
+puts "[#{days[0]}, #{days[1]}]"
    
 end
 
