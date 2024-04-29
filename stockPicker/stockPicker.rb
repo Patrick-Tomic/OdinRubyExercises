@@ -1,30 +1,31 @@
 
 def stock_picker(arr)
-    count = 0
-    lowestPrice = 0
+   
+    lowestPrice = arr[0]
     dayToBuy = 0
-    highestPrice = 0
     dayToSell = 0
-    available = true
+    profit = 0
+    days = [0,0]
     arr.each_with_index do |price, index|
-    if highestPrice === 0 && index != 0
-        highestPrice = price
-    elsif highestPrice < price and index != 0
+        if price < lowestPrice
+            lowestPrice = price
+            dayToBuy = index
+            next
+        end
+        if price-lowestPrice > profit
+        profit = price-lowestPrice
         dayToSell = index
-        highestPrice = price
-    end
-    if lowestPrice === 0
-        lowestPrice = price
-        dayToBuy = index
-    elsif lowestPrice > price
-        lowestPrice = price
-        dayToBuy = index
-    end
+        days = [dayToBuy, index]
+        end
 end
-days = [dayToBuy, dayToSell]
+
+
+
 puts "[#{days[0]}, #{days[1]}]"
+puts dayToBuy
+puts dayToSell
    
 end
 
 
-    stock_picker([17,2,5,6,8,12,4])
+    stock_picker([17, 3, 6, 9, 15, 8, 5, 1, 10])
